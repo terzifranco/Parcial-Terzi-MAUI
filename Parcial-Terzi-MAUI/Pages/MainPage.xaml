@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parcial_Terzi_MAUI.Pages.MainPage">
+
+    <VerticalStackLayout Padding="20">
+
+        <!--Boton para cargar datos desde la API-->
+        <Button Text="Cargar datos"
+            Command="{Binding LoadDataCommand}" />
+
+        <!-- Label que muestra el estado (cargando, error, etc)-->
+        <Label Text="{Binding StatusMessage}" />
+
+        <!--Lista de usuarios obtenidos-->
+        <CollectionView ItemsSource="{Binding Posts}"
+                    SelectionMode="Single"
+                    SelectionChanged="OnItemSelected">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="12"
+               Margin="5"
+               CornerRadius="10"
+               BorderColor="LightGray">
+
+                        <VerticalStackLayout>
+                            <!--Mostramos el nombre-->
+                            <Label Text="{Binding name}"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+                            
+                            <!--Mostramos el email-->
+                            <Label Text="{Binding email}"
+                       FontSize="13"
+                       TextColor="Gray"/>
+                        </VerticalStackLayout>
+
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>

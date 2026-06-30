@@ -5,12 +5,17 @@
 
     <VerticalStackLayout Padding="20">
 
-        <Label Text="Detalle del usuario" 
-               FontSize="20" 
+        <Label Text="Detalle del usuario"
+               FontSize="20"
                FontAttributes="Bold"/>
 
-        <Label x:Name="NameLabel" FontSize="18"/>
-        <Label x:Name="EmailLabel" FontSize="16"/>
+        <!-- Mostramos el nombre -->
+        <Label Text="{Binding Name}"
+               FontSize="18"/>
+
+        <!-- Mostramos el email -->
+        <Label Text="{Binding Email}"
+               FontSize="16"/>
 
     </VerticalStackLayout>
 

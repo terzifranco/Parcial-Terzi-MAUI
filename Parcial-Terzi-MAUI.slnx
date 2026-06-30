@@ -1,3 +1,8 @@
 <Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path="build.yml" />
+  </Folder>
   <Project Path="Parcial-Terzi-MAUI/Parcial-Terzi-MAUI.csproj" />
+  <Project Path="Parcial_Terzi_MAUI.Tests4/Parcial_Terzi_MAUI.Tests4.csproj" Id="75272b89-1038-4810-8637-6e65af4e5a8c" />
 </Solution>

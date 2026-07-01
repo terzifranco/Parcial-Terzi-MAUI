@@ -1,5 +1,7 @@
 ﻿using Parcial_Terzi_MAUI.Models;
 using Parcial_Terzi_MAUI.PageModels;
+using Microsoft.Maui.Devices;
+using System.Collections.ObjectModel;
 
 namespace Parcial_Terzi_MAUI.Pages
 {
@@ -8,24 +10,34 @@ namespace Parcial_Terzi_MAUI.Pages
         public MainPage()
         {
             InitializeComponent();
-            //Asignamos el ViewModel a la vista
             BindingContext = new MainViewModel();
         }
 
-        //Metodo que se ejecuta al seleccionar al usuario 
+        // Selección de item → navegación a detalle
         private async void OnItemSelected(object sender, SelectionChangedEventArgs e)
         {
-            //Obtenemos el elemento 
             var item = e.CurrentSelection.FirstOrDefault() as Post;
 
             if (item == null)
                 return;
 
-            //Navegamos a la pantalla de detalle enviando el usuario
             await Shell.Current.GoToAsync(nameof(DetailPage), true, new Dictionary<string, object>
-{
-    { "User", item }
-});
+            {
+                { "User", item }
+            });
+        }
+
+        // SENSOR: Vibración
+        private void OnVibrateClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                Vibration.Default.Vibrate(TimeSpan.FromMilliseconds(300));
+            }
+            catch
+            {
+                // El dispositivo puede no soportarlo
+            }
         }
     }
 }

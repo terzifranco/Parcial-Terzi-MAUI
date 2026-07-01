@@ -5,35 +5,37 @@
 
     <VerticalStackLayout Padding="20">
 
-        <!--Boton para cargar datos desde la API-->
+        <!-- Botón API -->
         <Button Text="Cargar datos"
-            Command="{Binding LoadDataCommand}" />
+                Command="{Binding LoadDataCommand}" />
 
-        <!-- Label que muestra el estado (cargando, error, etc)-->
+        <!-- SENSOR -->
+        <Button Text="Vibrar dispositivo"
+                Clicked="OnVibrateClicked"/>
+
+        <!-- Estado -->
         <Label Text="{Binding StatusMessage}" />
 
-        <!--Lista de usuarios obtenidos-->
+        <!-- Lista -->
         <CollectionView ItemsSource="{Binding Posts}"
-                    SelectionMode="Single"
-                    SelectionChanged="OnItemSelected">
+                        SelectionMode="Single"
+                        SelectionChanged="OnItemSelected">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame Padding="12"
-               Margin="5"
-               CornerRadius="10"
-               BorderColor="LightGray">
+                           Margin="5"
+                           CornerRadius="10"
+                           BorderColor="LightGray">
 
                         <VerticalStackLayout>
-                            <!--Mostramos el nombre-->
                             <Label Text="{Binding name}"
-                       FontAttributes="Bold"
-                       FontSize="16"/>
-                            
-                            <!--Mostramos el email-->
+                                   FontAttributes="Bold"
+                                   FontSize="16"/>
+
                             <Label Text="{Binding email}"
-                       FontSize="13"
-                       TextColor="Gray"/>
+                                   FontSize="13"
+                                   TextColor="Gray"/>
                         </VerticalStackLayout>
 
                     </Frame>
